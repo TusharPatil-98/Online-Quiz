@@ -1,0 +1,3 @@
+CREATE PROCEDURE `deleteQuestion`(IN `id` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER DELETE FROM mst_question WHERE que_id = id
+
+CREATE TRIGGER `mst_backup` BEFORE DELETE ON `mst_question` FOR EACH ROW INSERT INTO backup values(que_id,test_id,que_desc,ans1,ans2,ans3,ans4,true_ans);
